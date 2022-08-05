@@ -1,14 +1,14 @@
-import fs from 'fs';
-import chalk from 'chalk'
-import inquirer from 'inquirer'
+const fs = require('fs')
+const chalk = require('chalk');
+const inquirer = require('inquirer')
 
-console.log(chalk.bgWhite('Welcome to "Oof is back!"'))
+console.log(chalk.bgCyan('Welcome to "Oof is back!"'))
 
 fs.readdirSync(`${process.env.LOCALAPPDATA}\\Roblox\\Versions`).forEach(file => {
     let roblox = file.startsWith('version-9');
     if (roblox) {
         var sounds = `${process.env.LOCALAPPDATA}\\Roblox\\Versions\\${file}\\content\\sounds`
-        console.log(`${chalk.bgBlueBright('info')} Roblox sounds folder was detected as ${sounds}`)
+        console.log(`${chalk.bgBlueBright('info')} Roblox sounds folder was detected as ${sounds}\n`)
         async function selectSound() {
             const answers = await inquirer.prompt({
                 name: 'playSelect',
@@ -40,6 +40,10 @@ fs.readdirSync(`${process.env.LOCALAPPDATA}\\Roblox\\Versions`).forEach(file => 
                                     throw err;
                                 }
                                 console.log(`${chalk.bgGreenBright('success')} Enjoy your new oof sound!`);
+                                console.log('Exiting in 5 seconds')
+                            setTimeout(function(){
+                                console.log("Goodbye");
+                            }, 5000);
                             });
                         });
                     } else {
@@ -49,6 +53,10 @@ fs.readdirSync(`${process.env.LOCALAPPDATA}\\Roblox\\Versions`).forEach(file => 
                                 throw err;
                             }
                             console.log(`${chalk.bgGreenBright('success')} Enjoy your new oof sound!`);
+                            console.log('Exiting in 5 seconds')
+                            setTimeout(function(){
+                                console.log("Goodbye");
+                            }, 5000);
                         });
                     }
                 } catch (err) {
