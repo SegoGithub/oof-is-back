@@ -20,7 +20,8 @@ fs.readdirSync(`${process.env.LOCALAPPDATA}\\Roblox\\Versions`).forEach(file => 
                     'GAH DAM',
                     'Half life',
                     'Old Minecraft Death Sound',
-                    'Lego Yoda Death'
+                    'Lego Yoda Death',
+                    'AUUUUUUGHHH'
                 ],
             });
 
@@ -68,6 +69,8 @@ fs.readdirSync(`${process.env.LOCALAPPDATA}\\Roblox\\Versions`).forEach(file => 
                 replaceSound('mc', 'Old Minecraft Death Sound')
             } else if (answers.playSelect === 'Lego Yoda Death') {
                 replaceSound('yoda', 'Lego Yoda Death')
+            } else if (answers.playSelect === 'AUUUUUUGHHH') {
+                replaceSound('augh', 'AUUUUUUGHHH')
             }
 
         }
