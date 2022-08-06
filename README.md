@@ -32,3 +32,13 @@ The custom death sounds are stored in the "sounds" folder in an OGG file format 
 * Node.js
 * [Chalk](https://www.npmjs.com/package/chalk) (for coloured text)
 * [Inquirer](https://www.npmjs.com/package/inquirer) (for the selection of sound effects)
+
+## How to compile
+
+[Prerequisites](https://github.com/nodejs/node/blob/HEAD/BUILDING.md#prerequisites)
+
+```
+npm i
+npm i -g pkg
+pkg -t node16-win-x64 .
+```
