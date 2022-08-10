@@ -5,7 +5,7 @@ const inquirer = require('inquirer')
 console.log(chalk.bgCyan('Welcome to "Oof is back!"'))
 
 fs.readdirSync(`${process.env.LOCALAPPDATA}\\Roblox\\Versions`).forEach(file => {
-    let roblox = file.startsWith('version-9');
+    let roblox = fs.existsSync(`${process.env.LOCALAPPDATA}\\Roblox\\Versions\\${file}\\content\\sounds`)
     if (roblox) {
         var sounds = `${process.env.LOCALAPPDATA}\\Roblox\\Versions\\${file}\\content\\sounds`
         console.log(`${chalk.bgBlueBright('info')} Roblox sounds folder was detected as ${sounds}\n`)
