@@ -43,3 +43,7 @@ npm i
 npm i -g pkg
 pkg -t node16-win-x64 .
 ```
+
+## Other apps I reccomend and use
+* [Roblox FPS Unlocker](https://github.com/axstin/rbxfpsunlocker)
+* [Roblox FPS Unlocker for macOS](https://github.com/lanylow/rbxfpsunlocker-osx)
