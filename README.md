@@ -6,7 +6,7 @@
                   <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" /></p>
 <p align="center"><img src="http://ForTheBadge.com/images/badges/built-with-love.svg" /></>
 
-## <p align="center">[Download Link (Windows 10 or later)](https://github.com/SegoGithub/oof-is-back/releases/download/v1.0.1/OOF.zip)</p>
+## <p align="center">[Download Link](https://github.com/SegoGithub/oof-is-back/releases/download/v1.0.1/OOF.zip)</p>
 ## <p align="center">[Download Link (Windows 8.1 or older)](https://github.com/SegoGithub/oof-is-back/releases/download/v1.0.1/OOF-win7.zip)</p>
 
 ## How to use
