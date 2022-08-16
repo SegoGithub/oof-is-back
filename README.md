@@ -10,7 +10,7 @@
 ## <p align="center">[Download Link (Windows 8.1 or older)](https://github.com/SegoGithub/oof-is-back/releases/download/v1.1.0/oof-is-back-win7.exe)</p>
 
 ## How to use
-* Simply download the zip file from the download link above and unzip it. Go inside the OOF! folder and open oof-is-back.exe
+* Simply download the exe file from the download link above and run it.
 * Use the up and down arrow keys to choose and Enter to confirm your choise.
 * Done!
 
@@ -27,7 +27,7 @@
 After Roblox changed the oof sound I started to replace it with custom sounds like AUUUUUUGHHH and the Vine Boom Sound Effect, I wanted an easier way to change the death sound. So I made this app. Also to help other people easily change their oof sound.
 
 ## How does it work?
-The custom death sounds are stored in the "sounds" folder in an OGG file format and are copied into the Roblox Game files to replace the oof sound.
+The custom death sounds are stored in the "sounds" folder (downloaded as a zip file then extracted automatically by the program) in an OGG file format and are copied into the Roblox Game files to replace the oof sound.
 
 ## Technologies used
 * Node.js
