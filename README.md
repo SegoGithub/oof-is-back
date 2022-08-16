@@ -48,6 +48,5 @@ pkg -t node16-win-x64 . (for windows 10 and later)
 pkg -t node12-win-x64 . (for windows 8.1 and older)
 ```
 
-## Other apps I reccomend and use
+## Other apps I recommend and use
 * [Roblox FPS Unlocker](https://github.com/axstin/rbxfpsunlocker)
-* [Roblox FPS Unlocker for macOS](https://github.com/lanylow/rbxfpsunlocker-osx)
