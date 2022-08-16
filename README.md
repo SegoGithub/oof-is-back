@@ -23,6 +23,8 @@
 * Lego Yoda Death
 * AUUUUUUGHHH
 
+![cli](https://user-images.githubusercontent.com/71465609/184873758-861d8aff-d7ab-463e-916a-cb70efc31c67.gif)
+
 ## Why I made this?
 After Roblox changed the oof sound I started to replace it with custom sounds like AUUUUUUGHHH and the Vine Boom Sound Effect, I wanted an easier way to change the death sound. So I made this app. Also to help other people easily change their oof sound.
 
