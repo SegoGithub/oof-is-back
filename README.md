@@ -33,15 +33,19 @@ The custom death sounds are stored in the "sounds" folder (downloaded as a zip f
 * Node.js
 * [Chalk](https://www.npmjs.com/package/chalk) (for coloured text)
 * [Inquirer](https://www.npmjs.com/package/inquirer) (for the selection of sound effects)
+* [Axios](https://www.npmjs.com/package/axios) (for checking for updates)
+* [Download](https://www.npmjs.com/package/download) (for downloading the sounds.zip file)
+* [Decompress](https://www.npmjs.com/package/decompress) (for decompressing the sounds.zip file)
 
 ## How to compile
 
 [Prerequisites](https://github.com/nodejs/node/blob/HEAD/BUILDING.md#prerequisites)
 
-```
+```bash
 npm i
 npm i -g pkg
-pkg -t node16-win-x64 .
+pkg -t node16-win-x64 . (for windows 10 and later)
+pkg -t node12-win-x64 . (for windows 8.1 and older)
 ```
 
 ## Other apps I reccomend and use
