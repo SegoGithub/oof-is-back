@@ -11,6 +11,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "got": ">=11.8.5",
     "axios": "^0.27.2",
     "chalk": "^4.1.2",
     "decompress": "^4.2.1",

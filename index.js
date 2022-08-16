@@ -35,16 +35,19 @@ fs.readdirSync(`${process.env.LOCALAPPDATA}\\Roblox\\Versions`).forEach(file => 
                 console.log(`${chalk.bgBlueBright('info')} You selected ${soundName}`)
                 if (fs.existsSync(`sounds`)) {
                     console.log(`${chalk.bgBlueBright('info')} Sounds folder already downloaded`);
+                    start();
                 } else {
                     console.log(`${chalk.bgBlueBright('info')} Downloading sounds...`);
                     download(url, './', { extract: true })
                         .then(() => {
                             console.log(`${chalk.bgGreenBright('success')} Sounds downloaded!`);
+                            start();
                         }).catch(err => {
                             console.log(`${chalk.bgRedBright('error')} ${err}`);
                         });
                 }
-                try {
+                function start() {
+                    try {
                     if (fs.existsSync(`${sounds}\\ouch.ogg`)) {
                         console.log(`${chalk.bgBlueBright('info')} Found oof sound`);
                         fs.unlink(`${sounds}\\ouch.ogg`, (err) => {
@@ -80,7 +83,7 @@ fs.readdirSync(`${process.env.LOCALAPPDATA}\\Roblox\\Versions`).forEach(file => 
                     }
                 } catch (err) {
                     console.error(err);
-                }
+                }}
 
             }
 
@@ -122,7 +125,7 @@ fs.readdirSync(`${process.env.LOCALAPPDATA}\\Roblox\\Versions`).forEach(file => 
                             console.log(chalk.greenBright(`You are running the latest version!`));
                             setTimeout(function () {
                                 selectSound();
-                            }, 10000);
+                            }, 3000);
                         }
                     })
                     .catch(error => {
