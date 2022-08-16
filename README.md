@@ -26,7 +26,7 @@
 ![cli](https://user-images.githubusercontent.com/71465609/184873758-861d8aff-d7ab-463e-916a-cb70efc31c67.gif)
 
 ## Why I made this?
-After Roblox changed the oof sound I started to replace it with custom sounds like AUUUUUUGHHH and the Vine Boom Sound Effect, I wanted an easier way to change the death sound. So I made this app. Also to help other people easily change their oof sound.
+After Roblox changed the oof sound I started to replace it with custom sounds, I wanted an easier way to change the death sound. So I made this app. Also to help other people easily change their oof sound.
 
 ## How does it work?
 The custom death sounds are stored in the "sounds" folder (downloaded as a zip file then extracted automatically by the program) in an OGG file format and are copied into the Roblox Game files to replace the oof sound.
