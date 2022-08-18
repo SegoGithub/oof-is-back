@@ -38,6 +38,8 @@ The custom death sounds are stored in the "sounds" folder (downloaded as a zip f
 * [Axios](https://www.npmjs.com/package/axios) (for checking for updates)
 * [Download](https://www.npmjs.com/package/download) (for downloading the sounds.zip file)
 * [Decompress](https://www.npmjs.com/package/decompress) (for decompressing the sounds.zip file)
+* [find-process](https://github.com/yibn2008/find-process) (for detecting if Roblox is running)
+* [node-notifier](https://github.com/mikaelbr/node-notifier) (for notifications in autostart.exe)
 
 ## How to compile
 
