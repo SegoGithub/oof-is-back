@@ -1,4 +1,4 @@
-const version = '1.1.0'
+const version = '1.2.0'
 const fs = require('fs')
 const download = require('download')
 const chalk = require('chalk');
@@ -46,44 +46,73 @@ fs.readdirSync(`${process.env.LOCALAPPDATA}\\Roblox\\Versions`).forEach(file => 
                             console.log(`${chalk.bgRedBright('error')} ${err}`);
                         });
                 }
-                function start() {
-                    try {
-                    if (fs.existsSync(`${sounds}\\ouch.ogg`)) {
-                        console.log(`${chalk.bgBlueBright('info')} Found oof sound`);
-                        fs.unlink(`${sounds}\\ouch.ogg`, (err) => {
+
+                async function autostart() {
+                    const answers = await inquirer.prompt({
+                        name: 'autoReplace',
+                        type: 'confirm',
+                        message: 'Do you want to prevent Roblox Updates from replacing your oof sound?',
+                    });
+                    if (answers.autoReplace) {
+                        fs.writeFile(`${sounds}\\.ouch`, '', function (err, data) {
                             if (err) {
-                                throw err;
+                                return console.log(err);
                             }
-                            console.log(`${chalk.bgBlueBright('info')} Old oof sound is deleted. Replacing with ${soundName} sound...`);
-                            fs.copyFile(`sounds\\${sound}\\ouch.ogg`, `${sounds}\\ouch.ogg`, (err) => {
-                                if (err) {
-                                    throw err;
-                                }
+                        });
+                        if (!fs.existsSync(`${process.env.APPDATA}\\oof-is-back`)) {
+                            fs.mkdirSync(`${process.env.APPDATA}\\oof-is-back`);
+                        }
+                        download(`https://github.com/SegoGithub/oof-is-back/releases/download/v${version}/autostart.exe`, `${process.env.APPDATA}\\Microsoft\\Windows\\Start Menu\\Programs\\Startup`)
+                            .then(() => {
+                                download(`https://raw.githubusercontent.com/SegoGithub/oof-is-back/main/icon.png`, `${process.env.APPDATA}\\oof-is-back`)
+                                console.log(`${chalk.bgGreenBright('success')} Oof is back will now automatically replace your oof sound once Roblox updates!`);
                                 console.log(`${chalk.bgGreenBright('success')} Enjoy your new oof sound!`);
                                 console.log(`${chalk.bgYellowBright('note')} If Roblox is already open, you will need to restart it for the new death sound to take effect`);
                                 console.log('Exiting in 5 seconds')
                                 setTimeout(function () {
                                     console.log("Goodbye");
                                 }, 5000);
+                            }).catch(err => {
+                                console.log(`${chalk.bgRedBright('error')} ${err}`);
                             });
-                        });
                     } else {
-                        console.log(`${chalk.bgBlueBright('info')} Looks like oof sound is already deleted. Replacing with ${soundName} sound...`);
-                        fs.copyFile(`sounds\\${sound}\\ouch.ogg`, `${sounds}\\ouch.ogg`, (err) => {
-                            if (err) {
-                                throw err;
-                            }
-                            console.log(`${chalk.bgGreenBright('success')} Enjoy your new oof sound!`);
-                            console.log(`${chalk.bgYellowBright('note')} If Roblox is already open, you will need to restart it for the new death sound to take effect`);
-                            console.log('Exiting in 5 seconds')
-                            setTimeout(function () {
-                                console.log("Goodbye");
-                            }, 5000);
-                        });
+                        console.log(`${chalk.bgGreenBright('success')} Enjoy your new oof sound!`);
+                        console.log(`${chalk.bgYellowBright('note')} If Roblox is already open, you will need to restart it for the new death sound to take effect`);
+                        console.log('Exiting in 5 seconds')
+                        setTimeout(function () {
+                            console.log("Goodbye");
+                        }, 5000);
                     }
-                } catch (err) {
-                    console.error(err);
-                }}
+                }
+                function start() {
+                    try {
+                        if (fs.existsSync(`${sounds}\\ouch.ogg`)) {
+                            console.log(`${chalk.bgBlueBright('info')} Found oof sound`);
+                            fs.unlink(`${sounds}\\ouch.ogg`, (err) => {
+                                if (err) {
+                                    throw err;
+                                }
+                                console.log(`${chalk.bgBlueBright('info')} Old oof sound is deleted. Replacing with ${soundName} sound...`);
+                                fs.copyFile(`sounds\\${sound}\\ouch.ogg`, `${sounds}\\ouch.ogg`, (err) => {
+                                    if (err) {
+                                        throw err;
+                                    }
+                                    autostart();
+                                });
+                            });
+                        } else {
+                            console.log(`${chalk.bgBlueBright('info')} Looks like oof sound is already deleted. Replacing with ${soundName} sound...`);
+                            fs.copyFile(`sounds\\${sound}\\ouch.ogg`, `${sounds}\\ouch.ogg`, (err) => {
+                                if (err) {
+                                    throw err;
+                                }
+                                autostart();
+                            });
+                        }
+                    } catch (err) {
+                        console.error(err);
+                    }
+                }
 
             }
 
