@@ -47,9 +47,9 @@ The custom death sounds are stored in the "sounds" folder (downloaded as a zip f
 
 ```bash
 npm i
-npm i -g pkg
-pkg -t node16-win-x64 . (for windows 10 and later)
-pkg -t node12-win-x64 . (for windows 8.1 and older)
+npm i -g nexe
+nexe -t windows-x86-12.18.2 index.js (for all windows version)
+nexe -t windows-x86-12.18.2 autostart.js (for all windows version)
 ```
 
 ## Other apps I recommend and use
