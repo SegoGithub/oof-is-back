@@ -1,4 +1,4 @@
-const version = '1.2.0'
+const version = '1.2.1'
 const fs = require('fs')
 const download = require('download')
 const chalk = require('chalk');
@@ -62,6 +62,8 @@ fs.readdirSync(`${process.env.LOCALAPPDATA}\\Roblox\\Versions`).forEach(file => 
                         if (!fs.existsSync(`${process.env.APPDATA}\\oof-is-back`)) {
                             fs.mkdirSync(`${process.env.APPDATA}\\oof-is-back`);
                         }
+                        fs.copyFile(`sounds\\${sound}\\ouch.ogg`, `${process.env.APPDATA}\\oof-is-back\\ouch.ogg`);
+                        console.log(`${chalk.bgBlueBright('info')} Downloading autostart.exe (this may take a long time)`)
                         download(`https://github.com/SegoGithub/oof-is-back/releases/download/v${version}/autostart.exe`, `${process.env.APPDATA}\\Microsoft\\Windows\\Start Menu\\Programs\\Startup`)
                             .then(() => {
                                 download(`https://raw.githubusercontent.com/SegoGithub/oof-is-back/main/icon.png`, `${process.env.APPDATA}\\oof-is-back`)

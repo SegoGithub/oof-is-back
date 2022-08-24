@@ -10,10 +10,7 @@ setInterval(robloxRunning, 30000);
 function robloxRunning() {
     find('name', 'RobloxPlayerBeta.exe').then(result => {
         if (result.length > 0) {
-            console.log("Roblox is running")
             checkVer();
-        } else {
-            console.log("Roblox is not running")
         }
     }).catch(err => {
         console.log(`${err}`);
@@ -26,30 +23,29 @@ function checkVer() {
         if (fs.existsSync(`${process.env.LOCALAPPDATA}\\Roblox\\Versions\\${file}\\content\\sounds`)) {
             let sounds = `${process.env.LOCALAPPDATA}\\Roblox\\Versions\\${file}\\content\\sounds`;
             try {
-                if (fs.existsSync(`${sounds}\\.ouch`)) {
-                    console.log(`Oof sound has not been replaced by Roblox`);
-                } else {
+                if (!fs.existsSync(`${sounds}\\.ouch`)) {
                     console.log(`Oof sound was replaced by Roblox Updates`);
                     fs.unlink(`${sounds}\\ouch.ogg`, (err) => {
                         if (err) {
                             throw err;
                         }
-                        fs.copyFile(`ouch.ogg`, `${sounds}\\ouch.ogg`, (err) => {
+                        fs.copyFile(`${process.env.APPDATA}\\oof-is-back\\ouch.ogg`, `${sounds}\\ouch.ogg`, (err) => {
                             if (err) {
                                 throw err;
                             }
-                            fs.writeFile(`${sounds}\\.ouch`, '', function (err,data) {
+                            fs.writeFile(`${sounds}\\.ouch`, '', function (err, data) {
                                 if (err) {
-                                  return console.log(err);
+                                    return console.log(err);
                                 }
+                                console.log('Oof sound replaced with old one, game restart required')
                                 notifier.notify({
                                     title: 'Oof is back!',
                                     message: 'Your oof sound was replaced by Roblox Updates. Please restart Roblox for the old oof sound to take effect.',
-                                    // icon: `${process.env.APPDATA}\\oof-is-back\\icon.png`,
+                                    icon: `${process.env.APPDATA}\\oof-is-back\\icon.png`,
                                     wait: true,
                                     timeout: 15000,
-                                  });
-                              });
+                                });
+                            });
                         });
                     });
                 }
