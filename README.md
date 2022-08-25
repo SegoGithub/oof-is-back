@@ -6,7 +6,7 @@
                   <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" /></p>
 <p align="center"><img src="http://ForTheBadge.com/images/badges/built-with-love.svg" /></>
 
-## <p align="center">[Download Link (All Windows Version)](https://github.com/SegoGithub/oof-is-back/releases/download/v1.2.1/oof-is-back.exe)</p>
+## <p align="center">[Download Link (All Windows Version)](https://github.com/SegoGithub/oof-is-back/releases/download/v1.2.2/oof-is-back.exe)</p>
 
 ## How to use
 * Simply download the exe file from the download link above and run it.
