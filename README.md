@@ -8,6 +8,9 @@
 
 ## <p align="center">[Download Link (All Windows Version)](https://github.com/SegoGithub/oof-is-back/releases/download/v1.2.2/oof-is-back.exe)</p>
 
+## NOTE:
+Currently considering rewriting the program in another programming language because node.js is slow and produces large exes, so development may be stopped for a while.
+
 ## How to use
 * Simply download the exe file from the download link above and run it.
 * Use the up and down arrow keys to choose and Enter to confirm your choise.
