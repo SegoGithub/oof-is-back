@@ -6,7 +6,7 @@
                   <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" /></p>
 <p align="center"><img src="http://ForTheBadge.com/images/badges/built-with-love.svg" /></>
 
-## <p align="center">[Download Link (All Windows Version)](https://github.com/SegoGithub/oof-is-back/releases/download/v1.2.2/oof-is-back.exe)</p>
+## <p align="center">[Download Link (All Windows Version)](https://github.com/SegoGithub/oof-is-back/releases/download/v1.2.3/oof-is-back.exe)</p>
 
 ## NOTE:
 Currently considering rewriting the program in another programming language because node.js is slow and produces large exes, so development may be stopped for a while.
