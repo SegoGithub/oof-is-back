@@ -1,4 +1,4 @@
-const version = '1.2.2'
+const version = 'v1.2.3'
 const fs = require('fs')
 const download = require('download')
 const chalk = require('chalk');
@@ -51,14 +51,25 @@ fs.readdirSync(`${process.env.LOCALAPPDATA}\\Roblox\\Versions`).forEach(file => 
                     const answers = await inquirer.prompt({
                         name: 'autoReplace',
                         type: 'confirm',
-                        message: 'Do you want to prevent Roblox Updates from replacing your oof sound?',
+                        message: 'Do you want to run an app on startup that prevents Roblox Updates from replacing your oof sound?',
                     });
                     if (answers.autoReplace) {
-                        fs.writeFile(`${sounds}\\.ouch`, '', function (err, data) {
-                            if (err) {
-                                return console.log(err);
-                            }
+                        const beta = await inquirer.prompt({
+                            name: 'betaReplace',
+                            type: 'confirm',
+                            message: 'Do you want to use a beta version of the autostart app? (Recommended for Windows 8 and up, faster than the normal version)',
                         });
+                        var autostartUrl;
+                        if (beta.betaReplace) {
+                            autostartUrl = `https://github.com/SegoGithub/oof-is-back/releases/download/${version}/autostart-beta.exe`
+                        } else {
+                            autostartUrl = `https://github.com/SegoGithub/oof-is-back/releases/download/${version}/autostart.exe`
+                        }
+                            fs.writeFile(`${sounds}\\.ouch`, '', function (err, data) {
+                                if (err) {
+                                    return console.log(err);
+                                }
+                            });
                         if (!fs.existsSync(`${process.env.APPDATA}\\oof-is-back`)) {
                             fs.mkdirSync(`${process.env.APPDATA}\\oof-is-back`);
                         }
@@ -68,25 +79,32 @@ fs.readdirSync(`${process.env.LOCALAPPDATA}\\Roblox\\Versions`).forEach(file => 
                             }
                         });
                         console.log(`${chalk.bgBlueBright('info')} Downloading autostart.exe (this may take a long time)`)
-                        download(`https://github.com/SegoGithub/oof-is-back/releases/download/v${version}/autostart.exe`, `${process.env.APPDATA}\\Microsoft\\Windows\\Start Menu\\Programs\\Startup`)
+                        // delete autostart.exe
+                        if (fs.existsSync(`${process.env.APPDATA}\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\autostart.exe`)) {
+                            fs.unlinkSync(`${process.env.APPDATA}\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\autostart.exe`);
+                        }
+                        if (fs.existsSync(`${process.env.APPDATA}\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\autostart-beta.exe`)) {
+                            fs.unlinkSync(`${process.env.APPDATA}\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\autostart-beta.exe`);
+                        }
+                        download(autostartUrl, `${process.env.APPDATA}\\Microsoft\\Windows\\Start Menu\\Programs\\Startup`)
                             .then(() => {
                                 download(`https://raw.githubusercontent.com/SegoGithub/oof-is-back/main/icon.png`, `${process.env.APPDATA}\\oof-is-back`)
-                                console.log(`${chalk.bgGreenBright('success')} Oof is back will now automatically replace your oof sound once Roblox updates!`);
-                                console.log(`${chalk.bgGreenBright('success')} Enjoy your new oof sound!`);
-                                console.log(`${chalk.bgYellowBright('note')} If Roblox is already open, you will need to restart it for the new death sound to take effect`);
-                                console.log('Exiting in 5 seconds')
                                 setTimeout(function () {
-                                    console.log("Goodbye");
+                                    process.exit(0)
                                 }, 5000);
                             }).catch(err => {
                                 console.log(`${chalk.bgRedBright('error')} ${err}`);
                             });
+
+                        fs.writeFile(`${sounds}\\.ouch`, '', function (err, data) {
+                            if (err) {
+                                return console.log(err);
+                            }
+                        });
                     } else {
-                        console.log(`${chalk.bgGreenBright('success')} Enjoy your new oof sound!`);
-                        console.log(`${chalk.bgYellowBright('note')} If Roblox is already open, you will need to restart it for the new death sound to take effect`);
-                        console.log('Exiting in 5 seconds')
+                        console.log(`${chalk.bgGreenBright('success')} Enjoy your new oof sound!\n${chalk.bgYellowBright('note')} If Roblox is already open, you will need to restart it for the new death sound to take effect\nExiting in 5 seconds`);
                         setTimeout(function () {
-                            console.log("Goodbye");
+                            process.exit(0)
                         }, 5000);
                     }
                 }
@@ -148,10 +166,10 @@ fs.readdirSync(`${process.env.LOCALAPPDATA}\\Roblox\\Versions`).forEach(file => 
                 replaceSound('custom', 'Custom Sound')
             } else if (answers.playSelect === 'Check for updates') {
                 axios
-                    .get('https://raw.githubusercontent.com/SegoGithub/oof-is-back/main/package.json')
+                    .get('https://api.github.com/repos/SegoGithub/oof-is-back/releases/latest')
                     .then(res => {
                         if (res.data.version !== version) {
-                            console.log(chalk.yellowBright(`New version available! ${version} => ${res.data.version}`));
+                            console.log(chalk.yellowBright(`New version available! ${version} => ${res.data.tag_name}`));
                             console.log(chalk.yellowBright(`Download link: https://github.com/SegoGithub/oof-is-back/releases`));
                             setTimeout(function () {
                                 selectSound();
@@ -172,4 +190,3 @@ fs.readdirSync(`${process.env.LOCALAPPDATA}\\Roblox\\Versions`).forEach(file => 
         selectSound()
     }
 });
-

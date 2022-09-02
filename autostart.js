@@ -2,9 +2,7 @@ const fs = require('fs');
 const find = require('find-process');
 const notifier = require('node-notifier')
 
-console.log("Welcome to Oof is back! (autostart)");
-console.log("This app replaces the oof sound with the one you chose when Roblox updates.");
-console.log("You can minimize this window, but don't close it.");
+console.log("Welcome to Oof is back! (autostart)\nThis app prevents Roblox Updates from changing your oof sound\nYou can minimize this windows, but dont close it.");
 
 setInterval(robloxRunning, 30000);
 function robloxRunning() {
