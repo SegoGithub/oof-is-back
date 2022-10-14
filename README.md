@@ -1,4 +1,6 @@
-<p align="center"><img src="https://github.com/SegoGithub/oof-is-back/blob/main/icon256.png?raw=true" /></p>
+## [PLEASE USE THIS INSTEAD](https://github.com/SegoGithub/oof-is-back-rust)
+
+<p align="center"><img src="https://user-images.githubusercontent.com/71465609/195943484-d56ab5a9-ac8f-4677-9801-10c88cac7224.png" /></p>
 <p align="center">Change your Roblox death sound to a different sound included in the app or the original oof sound.</p>
 <p align="center"><img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" />
                   <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" />
